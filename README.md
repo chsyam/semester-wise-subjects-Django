@@ -1,2 +1,2 @@
 # semester-wise-subjects-Django
-Developed a Django based web application which has semester wise all subjects
+Developed a web application using django which contains all subjects sorted according to their semester
