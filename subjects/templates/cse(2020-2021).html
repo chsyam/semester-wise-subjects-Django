@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE (R-19)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+</head>
+<body>
+    <h2>Add a Subject</h2>
+    <div class="form">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button type="submit">Add Subject</button>
+        </form>
+    </div>
+    <h2>Edit the List : </h2>
+    <div class="subject-list">
+        <div class="title">
+            Course Structure - B.Tech. (Information Technology) - 2020 Regulation
+        </div>
+        <div class="semester-list">
+            <div class="content-list">
+                <h4 class="semester">SEMESTER - I</h4>
+                {%if sem1%}
+                <table>
+                    <thead>
+                        <th>Subject Code</th>
+                        <th>Title of the Subject</th>
+                        <th>Syllabus</th>
+                        <th>Credits</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {% for subject in sem1 %}
+                            <tr>
+                                <td>{{ subject.subject_title }}</td>
+                                <td>{{ subject.subject_code }}</td>
+                                <td><a href="redirect_pdf/{{subject.id}}">Document</a> </td>
+                                {%if subject.subject_credits %}
+                                    <td>{{subject.subject_credits}}</td>
+                                {%else%}
+                                    <td>0</td>
+                                {%endif%}
+                                <td><a href="update/{{subject.id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td><a href="delete/{{subject.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            </tr>
+                        {%endfor%}
+                        <tr>
+                            <td colspan="3">Total</td>
+                            {%if t1%}
+                                <td>  {{ t1 }} </td>
+                            {%else%}
+                                <td> 0 </td>
+                            {%endif%}
+                        </tr>
+                    </tbody>
+                </table>
+                {%else%}
+                    <p>Not added any subject</p>
+                {%endif%}
+            </div>
+            <div class="content-list">
+                <h4 class="semester">SEMESTER - II</h4>
+                {%if sem2%}
+                <table>
+                    <thead>
+                        <th>Subject Code</th>
+                        <th>Title of the Subject</th>
+                        <th>Syllabus</th>
+                        <th>Credits</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {% for subject in sem2 %}
+                            <tr>
+                                <td>{{ subject.subject_title }}</td>
+                                <td>{{ subject.subject_code }}</td>
+                                <td><a href="redirect_pdf/{{subject.id}}/">Document</a> </td>
+                                {%if subject.subject_credits %}
+                                    <td>{{subject.subject_credits}}</td>
+                                {%else%}
+                                    <td>0</td>
+                                {%endif%}
+                                <td><a href="update/{{subject.id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td><a href="delete/{{subject.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            </tr>
+                        {%endfor%}
+                        <tr>
+                            <td colspan="3">Total</td>
+                            {%if t2%}
+                                <td>  {{ t2 }}</td>
+                            {%else%}
+                                <td>0</td>
+                            {%endif%}
+                        </tr>
+                    </tbody>
+                </table>
+                {%else%}
+                    <p>Not added any subject</p>
+                {%endif%}
+            </div>
+            <div class="content-list">
+                <h4 class="semester">SEMESTER - III</h4>
+                {%if sem3%}
+                <table>
+                    <thead>
+                        <th>Subject Code</th>
+                        <th>Title of the Subject</th>
+                        <th>Syllabus</th>
+                        <th>Credits</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {% for subject in sem3 %}
+                            <tr>
+                                <td>{{ subject.subject_title }}</td>
+                                <td>{{ subject.subject_code }}</td>
+                                <td><a href="redirect_pdf/{{subject.id}}/">Document</a> </td>
+                                {%if subject.subject_credits %}
+                                    <td>{{subject.subject_credits}}</td>
+                                {%else%}
+                                    <td>0</td>
+                                {%endif%}
+                                <td><a href="update/{{subject.id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td><a href="delete/{{subject.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            </tr>
+                        {%endfor%}
+                        <tr>
+                            <td colspan="3">Total</td>
+                            {%if t3%}
+                                <td>  {{ t3 }}</td>
+                            {%else%}
+                                <td>0</td>
+                            {%endif%}
+                        </tr>
+                    </tbody>
+                </table>
+                {%else%}
+                    <p>Not added any subject</p>
+                {%endif%}
+            </div>
+            <div class="content-list">
+                <h4 class="semester">SEMESTER - IV</h4>
+                {%if sem4%}
+                <table>
+                    <thead>
+                        <th>Subject Code</th>
+                        <th>Title of the Subject</th>
+                        <th>Syllabus</th>
+                        <th>Credits</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {% for subject in sem4 %}
+                            <tr>
+                                <td>{{ subject.subject_title }}</td>
+                                <td>{{ subject.subject_code }}</td>
+                                <td><a href="redirect_pdf/{{subject.id}}/">Document</a> </td>
+                                {%if subject.subject_credits %}
+                                    <td>{{subject.subject_credits}}</td>
+                                {%else%}
+                                    <td>0</td>
+                                {%endif%}
+                                <td><a href="update/{{subject.id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td><a href="delete/{{subject.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            </tr>
+                        {%endfor%}
+                        <tr>
+                            <td colspan="3">Total</td>
+                            {%if t4%}
+                                <td>  {{ t4 }}</td>
+                            {%else%}
+                                <td>0</td>
+                            {%endif%}
+                        </tr>
+                    </tbody>
+                </table>
+                {%else%}
+                    <p>Not added any subject</p>
+                {%endif%}
+            </div>
+            <div class="content-list">
+                <h4 class="semester">SEMESTER - V</h4>
+                {%if sem5%}
+                <table>
+                    <thead>
+                        <th>Subject Code</th>
+                        <th>Title of the Subject</th>
+                        <th>Syllabus</th>
+                        <th>Credits</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {% for subject in sem5 %}
+                            <tr>
+                                <td>{{ subject.subject_title }}</td>
+                                <td>{{ subject.subject_code }}</td>
+                                <td><a href="redirect_pdf/{{subject.id}}/">Document</a> </td>
+                                {%if subject.subject_credits %}
+                                    <td>{{subject.subject_credits}}</td>
+                                {%else%}
+                                    <td>0</td>
+                                {%endif%}
+                                <td><a href="update/{{subject.id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td><a href="delete/{{subject.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            </tr>
+                        {%endfor%}
+                        <tr>
+                            <td colspan="3">Total</td>
+                            {%if t5%}
+                                <td>  {{ t5 }}</td>
+                            {%else%}
+                                <td>0</td>
+                            {%endif%}
+                        </tr>
+                    </tbody>
+                </table>
+                {%else%}
+                    <p>Not added any subject</p>
+                {%endif%}
+            </div>
+            <div class="content-list">
+                <h4 class="semester">SEMESTER - VI</h4>
+                {%if sem6%}
+                <table>
+                    <thead>
+                        <th>Subject Code</th>
+                        <th>Title of the Subject</th>
+                        <th>Syllabus</th>
+                        <th>Credits</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {% for subject in sem6 %}
+                        <tr>
+                            <td>{{ subject.subject_title }}</td>
+                            <td>{{ subject.subject_code }}</td>
+                            <td><a href="redirect_pdf/{{subject.id}}/">Document</a> </td>
+                            {%if subject.subject_credits %}
+                                <td>{{subject.subject_credits}}</td>
+                            {%else%}
+                                <td>0</td>
+                            {%endif%}
+                            <td><a href="update/{{subject.id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a href="delete/{{subject.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                        {%endfor%}
+                        <tr>
+                            <td colspan="3">Total</td>
+                            {%if t6%}
+                                <td>  {{ t6 }}</td>
+                            {%else%}
+                                <td>0</td>
+                            {%endif%}
+                        </tr>
+                    </tbody>
+                </table>
+                {%else%}
+                    <p>Not added any subject</p>
+                {%endif%}
+            </div>
+            <div class="content-list">
+                <h4 class="semester">SEMESTER - VII</h4>
+                {%if sem7%}
+                <table>
+                    <thead>
+                        <th>Subject Code</th>
+                        <th>Title of the Subject</th>
+                        <th>Syllabus</th>
+                        <th>Credits</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {% for subject in sem7 %}
+                            <tr>
+                                <td>{{ subject.subject_title }}</td>
+                                <td>{{ subject.subject_code }}</td>
+                                <td><a href="redirect_pdf/{{subject.id}}/">Document</a> </td>
+                                {%if subject.subject_credits %}
+                                    <td>{{subject.subject_credits}}</td>
+                                {%else%}
+                                    <td>0</td>
+                                {%endif%}
+                                <td><a href="update/{{subject.id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td><a href="delete/{{subject.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            </tr>
+                        {%endfor%}
+                        <tr>
+                            <td colspan="3">Total</td>
+                            {%if t7%}
+                                <td>  {{ t7 }}</td>
+                            {%else%}
+                                <td>0</td>
+                            {%endif%}
+                        </tr>
+                    </tbody>
+                </table>
+                {%else%}
+                    <p>Not added any subject</p>
+                {%endif%}
+            </div>
+            <div class="content-list">
+                <h4 class="semester">SEMESTER - VIII</h4>
+                {%if sem8%}
+                <table>
+                    <thead>
+                        <th>Subject Code</th>
+                        <th>Title of the Subject</th>
+                        <th>Syllabus</th>
+                        <th>Credits</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {% for subject in sem8 %}
+                            <tr>
+                                <td>{{ subject.subject_title }}</td>
+                                <td>{{ subject.subject_code }}</td>
+                                <td><a href="redirect_pdf/{{subject.id}}/">Document</a> </td>
+                                {%if subject.subject_credits %}
+                                    <td>{{subject.subject_credits}}</td>
+                                {%else%}
+                                    <td>0</td>
+                                {%endif%}
+                                <td><a href="update/{{subject.id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td><a href="delete/{{subject.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            </tr>
+                        {%endfor%}
+                        <tr>
+                            <td colspan="3">Total</td>
+                            {%if t8%}
+                                <td>  {{ t8 }}</td>
+                            {%else%}
+                                <td>0</td>
+                            {%endif%}
+                        </tr>
+                    </tbody>
+                </table>
+                {%else%}
+                    <p>Not added any subject</p>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

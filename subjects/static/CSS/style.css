@@ -1,0 +1,74 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.subject-list{
+    width: 70%;
+    text-align:  center;
+    border: 1px solid black;
+    margin: auto;
+    box-shadow: 1px 1px 5px black;
+    margin-bottom: 50px;
+}
+.semester-list{
+    margin-bottom: 100px;
+    text-align: center;
+    margin: 3px;
+    border: 1px solid black;
+}
+.title{
+    font-size: 24px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 3px;
+}
+.subject-list table{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+table td,th{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+}
+.content-list{
+    margin-bottom: 20px;
+}
+.semester{
+    text-align: left;
+    margin-left: 15%;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 1px 1px 2px black;
+    margin-bottom: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.form table{
+    margin-top: 15px;
+}
+.form button{
+    box-shadow: 1px 1px 2px black;
+    margin: 10px;
+    background-color:white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 18px;
+}
+.form button:hover{
+    box-shadow: 1px 1px 2px green;
+    transition: 0.5s;
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+}
+h2{
+    text-align: center;
+}

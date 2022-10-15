@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Subject Details</title>
+</head>
+<body>
+    <h2>Update Subject:</h2>
+    <form action="" method="post" enctype="multipart/form-data" >
+        <input type="hidden" name="csrfmiddlewaretoken" value="luWrY2gr97NJfG4dIOsPf57dpSKifsxczezpzC6hk7qlmuE5KqknDukQer77nNR8">
+        <table>
+            <tr>
+				<th>
+					<label for="id_subject_title">Subject title:</label></th>
+					<td>
+						<input type="text" name="subject_title" value="{{subject.subject_title}}" maxlength="30" required id="id_subject_title">
+					</td>
+				</tr>
+  			<tr>
+    <th><label for="id_subject_code">Subject code:</label></th>
+    <td>
+      
+      <input type="text" name="subject_code" value="{{subject.subject_code}}" maxlength="30" required id="id_subject_code">
+      
+      
+    </td>
+  </tr>
+
+	<tr>
+		<th><label for="id_document">Document:</label></th>
+		<td>
+			<!-- Currently: <a href="/media/uploads/Resume.pdf">Document</a><br> -->
+			<!-- Change: -->
+			<input type="file" name="document" id="id_document">
+		</td>
+	</tr>
+
+	<tr>
+		<th><label for="id_subject_credits">Subject credits:</label></th>
+		<td>
+			<input type="number" name="subject_credits" value="{{subject.subject_credits}}" step="any" required id="id_subject_credits">
+		</td>
+	</tr>
+
+  	<tr>
+    <th><label for="id_semester">Semester:</label></th>
+		<td>
+			<select name="semester" id="id_semester">
+				<option value="{{subject.semester}}" selected>{{subject.semester}}</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+			</select>
+		</td>
+  	</tr>
+        </table>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
